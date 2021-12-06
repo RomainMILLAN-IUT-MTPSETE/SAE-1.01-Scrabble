@@ -1,7 +1,7 @@
 public class MEE {
     //PR => Pré-requis
     //A => Action
-    private int[] tabFreq = new int[24];
+    private int[] tabFreq = new int[25];
     private int nbTotEx = 0;
     private int max = 0;
 
