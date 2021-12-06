@@ -1,9 +1,8 @@
 public class MEE {
     //PR => Pré-requis
     //A => Action
-    private int[] tabFreq = new int[26];
-    private int nbTotEx = 0;
-    private int max = 0;
+    private int[] tabFreq;
+    private int nbTotEx;
 
     /**
      * PR: max >= 0
@@ -11,19 +10,14 @@ public class MEE {
      * @param max
      */
     public MEE(int max){
-        this.max = max;
-        for(int i=0; i<this.tabFreq.length; i++) {
-            this.tabFreq[i] = 0;
-        }
-
-        //On remet à la variable 'nbTotEx' à 0
-        this.nbTotEx = 0;
-        //On fait une boucle pour définir le nombre total d'exemplaire
-        for(int i=0; i<this.tabFreq.length; i++){
-            //Si l'élément dans le tableau 'tabFreq' est suppérieur à 0 alors :
-            if(this.tabFreq[i] > 0){
-                //On ajoute à la variable le nombre d'élément.
-                this.nbTotEx+=tabFreq[i];
+        //Si la variable 'max', passer en parametre est supérieur ou égale à 0  
+        if(max >= 0){
+            //On initialise le tableau 'tabFreq' et 'nbToEx' à 0
+            this.tabFreq = new int[max];
+            this.nbTotEx = 0;
+            //On met toutes les cases du tableau a 0
+            for(int i=0; i<this.tabFreq.length; i++) {
+                this.tabFreq[i] = 0;
             }
         }
     }
@@ -73,7 +67,7 @@ public class MEE {
     }
 
     /***
-     * PR: Nothin
+     * PR: Nothing
      * A: Copie d'une autre MEE
      * @param e
      */
@@ -81,17 +75,15 @@ public class MEE {
         //On copie les éléments de e dans this
         this.tabFreq = e.tabFreq;
         this.nbTotEx = e.nbTotEx;
+    }
 
-        //On remet à la variable 'nbTotEx' à 0
-        this.nbTotEx = 0;
-        //On fait une boucle pour définir le nombre total d'exemplaire
-        for(int i=0; i<this.tabFreq.length; i++){
-            //Si l'élément dans le tableau 'tabFreq' est suppérieur à 0 alors :
-            if(this.tabFreq[i] > 0){
-                //On ajoute à la variable le nombre d'élément.
-                this.nbTotEx+=tabFreq[i];
-            }
-        }
+    /**
+     * PR: Nothing
+     * A: Getter of the this.nbToEx
+     * @return
+     */
+    public int getNbTotEx() {
+        return this.nbTotEx;
     }
 
 
