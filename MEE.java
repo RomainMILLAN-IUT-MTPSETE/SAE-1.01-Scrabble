@@ -12,16 +12,9 @@ public class MEE {
      * @param max
      */
     public MEE(int max){
-        //Si la variable 'max', passer en parametre est supérieur ou égale à 0  
-        if(max >= 0){
-            //On initialise le tableau 'tabFreq' et 'nbToEx' à 0
-            this.tabFreq = new int[max];
+        
+            this.tabFreq = new int[max]; //On initialise le tableau 'tabFreq' et 'nbToEx' à 0
             this.nbTotEx = 0;
-            //On met toutes les cases du tableau a 0
-            for(int i=0; i<this.tabFreq.length; i++) {
-                this.tabFreq[i] = 0;
-            }
-        }
     }
 
     /**
