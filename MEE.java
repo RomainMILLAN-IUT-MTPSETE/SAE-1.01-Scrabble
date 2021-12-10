@@ -22,17 +22,7 @@ public class MEE {
      * @param tab
      */
     public MEE(int[] tab){
-        boolean intinTabPositifOrNull = true;
-        //Check all elements un the parameter tab.
-        for(int i=0; i<tab.length; i++){
-            //If the element in tab[i] is less than 0
-            if(tab[i] < 0){
-                //Si intinTabPositifOrNull est à true alors
-                if(intinTabPositifOrNull == true){
-                    //On passe la variable boolean à faux
-                    intinTabPositifOrNull = false;
-                }
-            }
+        this.tabFreq = tab //On copie tab dans l'élément courant
         }
 
         //Si la variable initialisé avant est true
