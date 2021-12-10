@@ -12,7 +12,6 @@ public class MEE {
      * @param max
      */
     public MEE(int max){
-        
             this.tabFreq = new int[max]; //On initialise le tableau 'tabFreq' et 'nbToEx' à 0
             this.nbTotEx = 0;
     }
