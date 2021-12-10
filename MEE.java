@@ -23,22 +23,6 @@ public class MEE {
      */
     public MEE(int[] tab){
         this.tabFreq = tab //On copie tab dans l'élément courant
-        }
-
-        //Si la variable initialisé avant est true
-        if(intinTabPositifOrNull == true){
-            //On initializa le tableau
-            this.tabFreq = new int[tab.length];
-            //On fait une boucle pour copier tous les elements de 'tab' dans 'tabFreq'
-            for(int i=0; i<tab.length; i++){
-                //On copie les element de tab dans tabFreq
-                this.tabFreq[i] = tab[i];
-            }
-        //Sinon
-        }else {
-            //On affiche une erreur
-            System.out.println("Error: Un element dans le tableau passer en parametre est inferieur a 0");
-        }
 
         //On remet à la variable 'nbTotEx' à 0
         this.nbTotEx = 0;
