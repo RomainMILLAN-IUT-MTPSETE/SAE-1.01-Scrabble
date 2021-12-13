@@ -12,8 +12,8 @@ public class MEE {
      * @param max
      */
     public MEE(int max){
-            this.tabFreq = new int[max]; //On initialise le tableau 'tabFreq' et 'nbToEx' à 0
-            this.nbTotEx = 0;
+        this.tabFreq = new int[max]; //On initialise le tableau 'tabFreq' et 'nbToEx' à 0
+        this.nbTotEx = 0;
     }
 
     /**
@@ -22,17 +22,11 @@ public class MEE {
      * @param tab
      */
     public MEE(int[] tab){
-        this.tabFreq = tab //On copie tab dans l'élément courant
 
-        //On remet à la variable 'nbTotEx' à 0
+        this.tabFreq = tab; //On copie tab dans l'élément courant
         this.nbTotEx = 0;
-        //On fait une boucle pour définir le nombre total d'exemplaire
-        for(int i=0; i<this.tabFreq.length; i++){
-            //Si l'élément dans le tableau 'tabFreq' est suppérieur à 0 alors :
-            if(this.tabFreq[i] > 0){
-                //On ajoute à la variable le nombre d'élément.
-                this.nbTotEx+=tabFreq[i];
-            }
+        for (int i = 0; i<this.tabFreq.length; i++){//On calcule nbTotEx de tabFreq
+            this.nbTotEx = this.nbTotEx + this.tabFreq[i];
         }
     }
 
@@ -42,8 +36,8 @@ public class MEE {
      * @param e
      */
     public MEE(MEE e){
-        //On copie les éléments de e dans this
-        this.tabFreq = e.tabFreq;
+
+        this.tabFreq = e.tabFreq;//On copie les éléments de e dans this
         this.nbTotEx = e.nbTotEx;
     }
 
@@ -63,18 +57,8 @@ public class MEE {
      * @return
      */
     public boolean estVide(){
-        //On initializa la variable 'estVide', sur vrai
-        boolean estVide = true;
 
-        //On fait une boucle pour connaitre si l'element est vide
-        for(int i=0; i<this.tabFreq.length; i++){
-            //On regarde si le nombre dans le tableaux est supérieur à 0
-            if(this.tabFreq[i] > 0){
-                //Alors on passe la variable 'estVide' à false;
-                estVide = false;
-            }
-        }
-        return estVide;
+        return this.nbTotEx==0; //On vérifie si nbTotEx est à 0 : si il l'est cela signifie que tabFreq est vide (remplit de 0) sinon il n'est pas vide
     }
 
     /**
@@ -83,12 +67,9 @@ public class MEE {
      * @param i
      */
     public void ajoute(int i){
-        //On véréfie le pré-requis de la méthode
-        if(i > 0 && i < this.tabFreq.length){
-            //Si le chiffre est bon alors on ajoute dans 'tabFreq' 1 exemplaire
-            this.tabFreq[i] = this.tabFreq[i]+1;
-            this.nbTotEx++;
-        }
+
+        this.tabFreq[i] = this.tabFreq[i]+1;//On ajoute 1 exemplaire de i à tabFreq et on incrémente le nombre total d'exemplaire de 1
+        this.nbTotEx++;
     }
 
     /**
@@ -98,10 +79,9 @@ public class MEE {
      * @return
      */
     public boolean retire(int i){
-        //On initialize la variable 'retireFonctionne' pour savoir si nous avons réussi à retirer l'exemplaire
-        boolean retireFonctionne = false;
-        //Si il existe un exemplaire dans this alors
-        if(this.tabFreq[i] > 0){
+
+        boolean retireFonctionne = false;//On initialize la variable 'retireFonctionne' pour savoir si nous avons retirer un exemplaire ou non
+        if(this.tabFreq[i] > 0){//Si il existe un exemplaire de i dans this alors on décrémente l'élément et nbTotEx et on change la valeur de retireFonctionne pour true
             this.tabFreq[i] = this.tabFreq[i] - 1;
             this.nbTotEx--;
             retireFonctionne = true;
@@ -116,24 +96,14 @@ public class MEE {
      * @return
      */
     public int retireAleat(){
-        //Choisi un nombre aléatoire entre 0 et la longueur du tableau -1
-        Random rand = new Random();
-        int indice = rand.nextInt(0 - this.tabFreq.length-1);
-        
-        //Si le nombre placé à l'indice du tableau et > à 0 alors:
-        if(this.tabFreq[indice] > 0){
-            //On retire 1 de cette élément
-            this.tabFreq[indice]--;
-            this.nbTotEx--;
-        //Sinon
+        int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//Choisi un nombre aléatoire entre 0 et la longueur du tableau -1
+        int res = this.tabFreq[indice];
+
+        if(this.retire(indice) == false ){//Si retire ne fonctionne pas alors on relance la fonction
+            this.retireAleat();
         }else {
-            //On met indice à -1p
-            indice = -1;
-            //On réapelle la fonction
-            retireAleat();
+            return res;
         }
-        //On retourne l'indice
-        return indice;
     }
 
     /**
@@ -144,20 +114,14 @@ public class MEE {
      * @return
      */
     public boolean transfere(MEE e, int i){
-        //On initialize la variable 'resultat', qui est un boolean.
-        boolean resultat = false;
+        boolean resultat = false;//On initialize la variable 'resultat', qui est un boolean.
 
-        //On fait les prérequis, si i >= 0 et i est < a la limite de l'ensemble et tabFreq[i] > 0 alors:
-        if(i >= 0 && i < this.tabFreq.length && this.tabFreq[i] > 0){
-            //On retire 1 de this a l'indice donnée.
+        if(this.retire(i) == true){//On verifie si il est possible de transferer l'élément et on effectue l'action si possible.
             this.retire(i);
-            //On ajoute 1 à l'ensemble e donnée en paramètre et a l'indice donnée.
             e.ajoute(i);
-            //On passe la variable résultat à true.
             resultat = true;
         }
 
-        //On retourne la variable boolean.
         return resultat;
     }
 
@@ -167,23 +131,22 @@ public class MEE {
      * @param e
      * @param k
      */
-    public void tranfereAleat(MEE e, int k){
-        //Choisi un nombre aléatoire entre 0 et la longueur du tableau -1
-        Random rand = new Random();
-        int indice = rand.nextInt(0 - this.tabFreq.length-1);
+    public int tranfereAleat(MEE e, int k){
 
-        //Si l'élément contenue à l'indicie 'indice' dans le tableau est suppérieur à nombre d'élément que l'on veut enlever alors:
-        if(this.tabFreq[indice] > k){
-            //On fait une boucle pour x fois de i=0 à i<k
-            for(int i=0; i<k; i++){
-                //On retire alors une fois l'élément à l'indice indiquer
-                this.retire(indice);
+        if(this.nbTotEx >= k){//Si la variable k
+            int res = k;
+            while(k>0){
+                int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//On lance un random nombre pour avoir l'indice.
+                if(this.tabFreq[indice] > 0){
+                    this.transfere(e, indice);
+                }
+                k--;
             }
-        //Sinon
         }else {
-            //On affiche une erreur:
-            System.out.println("ERROR: Trop peut d'exemplaire dans l'indice choisis");
+            k = nbTotEx;
+            this.tranfereAleat(e, k);
         }
+        return res;
     }
 
     /**
