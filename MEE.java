@@ -169,28 +169,4 @@ public class MEE {
         return resultat;
     }
 
-
-
-
-    /**
-     * Affiche un Multiple Element Ensemble
-     * @param E
-     */
-    public void afficheMEE() {
-        if(!this.estVide()){
-            String res = "{ ";
-            for (int i=0; i<this.tabFreq.length-1; i++){
-                if(this.tabFreq[i] > 0){
-                    res += tabFreq[i] + ",";
-                }else {
-                    res += "0,";
-                }
-            }
-            res+=" }";
-            System.out.println(res);
-        }else {
-            System.out.println("Error");
-        }
-    }
-
 }
