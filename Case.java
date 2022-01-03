@@ -8,7 +8,7 @@ public class Case {
      */
     public Case(int uneCouleur){
         this.couleur = uneCouleur;
-        this.lettre = 0;
+        this.lettre = '0';
     }
 
     /**
@@ -40,7 +40,7 @@ public class Case {
      */
     public boolean estRecouverte(){
         boolean resultat = false;
-        if(this.lettre != 0){
+        if(this.lettre != '0'){
             resultat = true;
         }
 

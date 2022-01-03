@@ -4,6 +4,5 @@ public class Scrabble {
 
         int[] tab = {1,5,7,9,4};
         MEE meeP1 = new MEE(tab);
-        meeP1.afficheMEE();
     }
 }

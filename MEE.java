@@ -50,6 +50,14 @@ public class MEE {
         return this.nbTotEx;
     }
 
+    /**
+     * PR: Nothing
+     * A: Getter of the the.tabFreq
+     * @return
+     */
+    public int[] getTabFreq() {
+        return tabFreq;
+    }
 
     /**
      * PR: Nothing
@@ -68,7 +76,7 @@ public class MEE {
      */
     public void ajoute(int i){
 
-        this.tabFreq[i] = this.tabFreq[i]+1;//On ajoute 1 exemplaire de i à tabFreq et on incrémente le nombre total d'exemplaire de 1
+        this.tabFreq[i] += 1;//On ajoute 1 exemplaire de i à tabFreq et on incrémente le nombre total d'exemplaire de 1
         this.nbTotEx++;
     }
 
@@ -82,7 +90,7 @@ public class MEE {
 
         boolean retireFonctionne = false;//On initialize la variable 'retireFonctionne' pour savoir si nous avons retirer un exemplaire ou non
         if(this.tabFreq[i] > 0){//Si il existe un exemplaire de i dans this alors on décrémente l'élément et nbTotEx et on change la valeur de retireFonctionne pour true
-            this.tabFreq[i] = this.tabFreq[i] - 1;
+            this.tabFreq[i] --;
             this.nbTotEx--;
             retireFonctionne = true;
         }
@@ -96,14 +104,14 @@ public class MEE {
      * @return
      */
     public int retireAleat(){
-        int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//Choisi un nombre aléatoire entre 0 et la longueur du tableau -1
-        int res = this.tabFreq[indice];
+        int indice;
 
-        if(this.retire(indice) == false ){//Si retire ne fonctionne pas alors on relance la fonction
-            this.retireAleat();
-        }else {
-            return res;
-        }
+        do{
+            indice = Ut.randomMinMax(0, this.tabFreq.length-1);
+        }while(this.tabFreq[indice]==0);
+
+        this.retire(indice);
+        return indice;
     }
 
     /**
@@ -116,7 +124,7 @@ public class MEE {
     public boolean transfere(MEE e, int i){
         boolean resultat = false;//On initialize la variable 'resultat', qui est un boolean.
 
-        if(this.retire(i) == true){//On verifie si il est possible de transferer l'élément et on effectue l'action si possible.
+        if(this.tabFreq[i] > 0){//On verifie si il est possible de transferer l'élément et on effectue l'action si possible.
             this.retire(i);
             e.ajoute(i);
             resultat = true;
@@ -132,19 +140,13 @@ public class MEE {
      * @param k
      */
     public int tranfereAleat(MEE e, int k){
-
-        if(this.nbTotEx >= k){//Si la variable k
-            int res = k;
-            while(k>0){
-                int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//On lance un random nombre pour avoir l'indice.
-                if(this.tabFreq[indice] > 0){
-                    this.transfere(e, indice);
-                }
-                k--;
+        int res = 0;
+        while(k>0){
+            int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//On lance un random nombre pour avoir l'indice.
+            if(this.transfere(e, indice)){
+                res++;
             }
-        }else {
-            k = nbTotEx;
-            this.tranfereAleat(e, k);
+            k--;
         }
         return res;
     }
