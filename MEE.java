@@ -23,7 +23,8 @@ public class MEE {
      */
     public MEE(int[] tab){
 
-        this.tabFreq = tab; //On copie tab dans l'élément courant
+
+        this.tabFreq = tab;
         this.nbTotEx = 0;
         for (int i = 0; i<this.tabFreq.length; i++){//On calcule nbTotEx de tabFreq
             this.nbTotEx = this.nbTotEx + this.tabFreq[i];
@@ -90,7 +91,7 @@ public class MEE {
 
         boolean retireFonctionne = false;//On initialize la variable 'retireFonctionne' pour savoir si nous avons retirer un exemplaire ou non
         if(this.tabFreq[i] > 0){//Si il existe un exemplaire de i dans this alors on décrémente l'élément et nbTotEx et on change la valeur de retireFonctionne pour true
-            this.tabFreq[i] --;
+            this.tabFreq[i]--;
             this.nbTotEx--;
             retireFonctionne = true;
         }
@@ -143,7 +144,7 @@ public class MEE {
         int res = 0;
         while(k>0){
             int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//On lance un random nombre pour avoir l'indice.
-            if(this.transfere(e, indice)){
+            if(this.transfere(e, indice) == true){
                 res++;
             }
             k--;
