@@ -94,9 +94,17 @@ public class Joueur {
      */
     public int joue(Plateau p, MEE s, int[] nbPointsJet){
         int resultat = 0;
-        System.out.println("\n" + chevaletString());
 
-        System.out.println("A votre tour de joueur " + this.nom + "\n S pour passer, E pour échanger, P pour placer");
+        //Je clear la console (il y a Ut.clearConsole(), cependant je n'arrive pas a le faire fonctionner).
+        for(int m=0; m<500; m++){
+            System.out.println(" ");
+        }
+
+        System.out.println(p.toString());
+        System.out.println("\n\n\n" + chevaletString());
+
+        System.out.println("Votre score actuel: " + this.score);
+        System.out.println("\n - A votre tour de joueur " + this.nom + ":\n    S pour passer, E pour échanger, P pour placer");
         char selectionJoueur = Ut.saisirCaractere();
         if(selectionJoueur == 'S'){
             resultat = -1;
@@ -111,8 +119,6 @@ public class Joueur {
                     resultat = 0;
                 }
             }
-        }else {
-
         }
 
         return resultat;

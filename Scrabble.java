@@ -86,20 +86,41 @@ public class Scrabble {
             }
         }
 
-        System.out.println();
+        System.out.println(afficheVainqueur());
     }
 
+    /**
+     * A/R: Fonction qui retourne en String, les résultats des joueurs du scrabble.
+     * @return
+     */
     public String afficheVainqueur(){
+        String resultatVainqueurs = "";
+        int idJoueursVainqueur = 0;
         int[] vainqueursJoueurs = new int[joueurs.length];
-        int joueurVainqueur = 0;
-        String resultat = "";
 
-        for(int i=1; i<joueurs.length; i++){
-            if(joueurs[i].getScore() > joueurs[joueurVainqueur].getScore()){
-                joueurVainqueur = i;
+        //On fait une boucle qui vas regarder le score de tous les joueur en commencant à 1 car on se dit que le 0 et le premier vainqueur.
+        for(int i = 1; i<joueurs.length; i++) {
+            if (joueurs[idJoueursVainqueur].getScore() == joueurs[i].getScore()) {
+                vainqueursJoueurs[i] = i;
+            }else if(joueurs[i].getScore() > joueurs[idJoueursVainqueur].getScore()){
+                idJoueursVainqueur = i;
             }
         }
 
+        if(idJoueursVainqueur == vainqueursJoueurs[1] && vainqueursJoueurs[1] != 0) {
+            resultatVainqueurs += "Ex-aequo: " + joueurs[idJoueursVainqueur].toString() + " et ";
+            for(int i=1; i<vainqueursJoueurs.length; i++) {
+                if(vainqueursJoueurs[i] != 0 && joueurs[vainqueursJoueurs[i]].getScore() == joueurs[idJoueursVainqueur].getScore()) {
+                    resultatVainqueurs += joueurs[vainqueursJoueurs[i]].getNom() + ", ";
+                }
+            }
+        }else {
+            resultatVainqueurs += "Le vainqueur est: " + joueurs[idJoueursVainqueur].getNom();
+        }
 
+
+
+
+        return resultatVainqueurs;
     }
 }
