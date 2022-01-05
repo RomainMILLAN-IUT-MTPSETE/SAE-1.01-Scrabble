@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5b993a7-4fba-4e22-ba6d-d7ce03efadd1" name="Changes" comment="Delete 'afficheMEE'" />
+    <list default="true" id="f5b993a7-4fba-4e22-ba6d-d7ce03efadd1" name="Changes" comment="Delete 'afficheMEE'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrabble.java" beforeDir="false" afterPath="$PROJECT_DIR$/Scrabble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainScrabble.java" beforeDir="false" afterPath="$PROJECT_DIR$/mainScrabble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Plateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Plateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Scrabble.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Scrabble.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/mainScrabble.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/mainScrabble.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,13 +48,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JAVA" />
-    <property name="last_opened_file_path" value="E:/DDE SktStd/Coding/Discord/DEVELOPMENT/Zora" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cours-Linker/Initiation au Développement/T.D/T.D. - 9/Java" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.21408182" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="CodeWithMe" />
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.SCRABBLE">
+    <configuration name="SCRABBLE" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mainScrabble" />
+      <module name="SAE 1.01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test SCRABBLE" type="Application" factoryName="Application">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -60,6 +76,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Test SCRABBLE" />
+      <item itemvalue="Application.SCRABBLE" />
       <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
@@ -105,7 +122,7 @@
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="211">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="210">
         <watch expression="resultat" language="JAVA" />
       </inline-watch>
     </watches-manager>

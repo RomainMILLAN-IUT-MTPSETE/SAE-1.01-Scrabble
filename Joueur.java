@@ -145,10 +145,10 @@ public class Joueur {
         System.out.println("\n" + chevaletString());
 
 
-        System.out.println("Veuilliez saisir le mot à placer: "); String mot = Ut.saisirChaine();
-        System.out.println("Veuilliez saisir le numéro de Ligne: "); int numLig = Ut.saisirEntier();
-        System.out.println("Veuilliez saisir le numéro de Colonne: "); int numCol = Ut.saisirEntier();
-        System.out.println("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
+        System.out.print("Veuilliez saisir le mot à placer: "); String mot = Ut.saisirChaine();
+        System.out.print("Veuilliez saisir le numéro de Ligne: "); int numLig = Ut.saisirEntier();
+        System.out.print("Veuilliez saisir le numéro de Colonne: "); int numCol = Ut.saisirEntier();
+        System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
         System.out.println(p.placementValide(mot, numLig, numCol, sens, this.chevalet));
         if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == true){
@@ -161,7 +161,12 @@ public class Joueur {
 
         System.out.println(p.toString());
         if(resultat == false){
-            System.out.println("Placement invalide !");
+            System.out.println("Placement invalide !, passage au joueur suivant");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("Votre score: " + this.score);
 

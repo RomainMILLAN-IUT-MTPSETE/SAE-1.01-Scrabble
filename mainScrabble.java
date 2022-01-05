@@ -18,7 +18,7 @@ public class mainScrabble {
         String[] listeJoueurs = new String[nbJoueurs];
 
         for(int i = 0; i < nbJoueurs; i++){//On fait une boucle pour crée tous les noms de joueur
-            Ut.afficher("Nom J" + (i + 1) + " :");
+            Ut.afficher("Nom du Joueur n°" + (i + 1) + ": ");
             listeJoueurs[i] = Ut.saisirChaine();
         }
 

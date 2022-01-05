@@ -115,7 +115,7 @@ public class Scrabble {
                 }
             }
         }else {
-            resultatVainqueurs += "Le vainqueur est: " + joueurs[idJoueursVainqueur].getNom();
+            resultatVainqueurs += "\n\nLe vainqueur est: " + joueurs[idJoueursVainqueur].getNom();
         }
 
 
