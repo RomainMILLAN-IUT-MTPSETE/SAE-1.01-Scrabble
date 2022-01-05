@@ -34,14 +34,14 @@ public class Plateau {
                 this.g[i][j] = new Case(plateau[i][j]);
             }
         }
-        g[7][6].setLettre('S');
+        /**g[7][6].setLettre('S');
         g[7][7].setLettre('C');
         g[7][8].setLettre('R');
         g[7][9].setLettre('A');
         g[7][10].setLettre('B');
         g[7][11].setLettre('L');
         g[7][12].setLettre('L');
-        g[7][13].setLettre('E');
+        g[7][13].setLettre('E');*/
     }
 
     /**
@@ -53,7 +53,7 @@ public class Plateau {
 
     public String toString(){
         //On définit les premières lignes de l'affichage
-        String resPlateauAfficher = "   |01 |02 |03 |04 |05 |06 |07 |08 |09 |10 |11 |12 |13 |14 |15 \n";
+        String resPlateauAfficher = "   |00 |01 |02 |03 |04 |05 |06 |07 |08 |09 |10 |11 |12 |13 |14 \n";
         //Puis la première lettre
         char colonne = 'A';
 
@@ -101,7 +101,7 @@ public class Plateau {
                 if(sens == 'h'){
                     if(numCol + mot.length()-1 <= 14){
                         if(numCol == 0 || g[numLig][numCol-1].estRecouverte() == false){
-                            if(numCol + mot.length()-1 == 14 || g[numLig][numCol + mot.length()-1].estRecouverte() == false){
+                            if(numCol + mot.length()-1 == 14 || g[numLig][numCol + mot.length()].estRecouverte() == false){
                                 if(checkCase(mot, numLig, numCol, sens) == true){
                                     if(checkChevalet(motWithoutCase(mot, numLig, numCol, sens), e) == true){
                                         resultatPlacementValide = true;
@@ -113,7 +113,7 @@ public class Plateau {
                 }else if(sens == 'v'){
                     if(numLig + mot.length()-1 <= 14){
                         if(numLig == 0 || g[numLig-1][numCol].estRecouverte() == false){
-                            if(numLig + mot.length()-1 == 14 || g[numLig + mot.length()-1][numCol].estRecouverte() == false){
+                            if(numLig + mot.length()-1 == 14 || g[numLig + mot.length()][numCol].estRecouverte() == false){
                                 if(checkCase(mot, numLig, numCol, sens) == true){
                                     if(checkChevalet(motWithoutCase(mot, numLig, numCol, sens), e) == true){
                                         resultatPlacementValide = true;
@@ -176,11 +176,15 @@ public class Plateau {
     public boolean checkChevalet(String mot, MEE e){
         boolean resultatDansChevalet = true;
         int positionMot = 0;
-        int[] chevalet = e.getTabFreq();
+        int[] chevalet = new int[e.getTabFreq().length];
+
+        for(int i=0; i<e.getTabFreq().length; i++){
+            chevalet[i] = e.getTabFreq()[i];
+        }
+
         while (resultatDansChevalet == true && positionMot < mot.length()) {
             // Si la lettre du mot saisi représentée par son indice dans le tabFreq du
             // chevalet à au moins 1 exemplaire
-            System.out.println(mot.charAt(positionMot));
             if (chevalet[Ut.majToIndex(mot.charAt(positionMot))] != 0) {
                 chevalet[Ut.majToIndex(mot.charAt(positionMot))]--;
                 positionMot++;
@@ -208,14 +212,14 @@ public class Plateau {
         //On check si il y a au moin 1 case non vide
         boolean resultatCheckVide = false;
         if(sens == 'h'){
-            for(int i=numCol; i<mot.length(); i++){
-                if(g[numLig][numCol + i].estRecouverte() == false){
+            for(int i=numCol; i<numCol + mot.length()-1; i++){
+                if(g[numLig][i].estRecouverte() == false){
                     resultatCheckVide = true;
                 }
             }
         }else if(sens == 'v'){
-            for(int j=0; j<mot.length(); j++){
-                if(g[numLig + j][numCol].estRecouverte() == false){
+            for(int j=numLig; j<numLig + mot.length()-1; j++){
+                if(g[j][numCol].estRecouverte() == false){
                     resultatCheckVide = true;
                 }
             }
@@ -224,29 +228,34 @@ public class Plateau {
         //On check si il y a au moins une case de remplie et on check que la lettre correspondant à la case est bien pareil que la lettre du mot.
         boolean resultatCheckNonVide = false;
         boolean resultatCheckMotCaseLetter = true;
+        int indexMot = 0;
         if(sens == 'h'){
-            for(int i=numCol; i<mot.length(); i++){
-                if(g[numLig][numCol + i].estRecouverte() == true){
+            indexMot = 0;
+            for(int i=numCol; i<numCol + mot.length()-1; i++){
+                int test = numCol+i;
+                if(g[numLig][i].estRecouverte() == true){
                     resultatCheckNonVide = true;
 
                     char letterCase = g[numLig][i].getLettre();
-                    char letterMotCase = mot.charAt(i);
+                    char letterMotCase = mot.charAt(indexMot);
 
                     if(letterCase == letterMotCase){
                         resultatCheckMotCaseLetter = true;
                     }else {
                         resultatCheckMotCaseLetter = false;
                     }
-
                 }
+
+                indexMot++;
             }
         }else if(sens == 'v'){
-            for(int k=0; k<mot.length(); k++){
-                if(g[numLig + k][numCol].estRecouverte() == true){
+            indexMot = 0;
+            for(int k=numLig; k<numLig + mot.length()-1; k++){
+                if(g[k][numCol].estRecouverte() == true){
                     resultatCheckNonVide = true;
 
-                    char letterCase = g[numLig + k][numCol].getLettre();
-                    char letterMotCase = mot.charAt(k);
+                    char letterCase = g[k][numCol].getLettre();
+                    char letterMotCase = mot.charAt(indexMot);
 
                     if(letterCase == letterMotCase){
                         resultatCheckMotCaseLetter = true;
@@ -254,6 +263,7 @@ public class Plateau {
                         resultatCheckMotCaseLetter = false;
                     }
                 }
+                indexMot++;
             }
         }
 
@@ -306,17 +316,110 @@ public class Plateau {
      */
     public int nbPointsPlacement(String mot, int numLig, int numCol, char sens, int[] nbPointsJet){
         int nbPointsFinal = 0;
+        int multiplicateurMot = 1;
+        switch (sens) {
+            case 'v':
+                for (int i = 0; i < mot.length(); i++) {
+                    int indexPointsJet = Ut.majToIndex(mot.charAt(i));
+                    if(g[numCol][numLig].getCouleur()==4 || g[numCol][numLig].getCouleur()==5){ //Mot compte Double Triple
+                        switch (g[numCol][numLig].getCouleur()){
+                            case 4:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 2;
+                                break;
 
+                            case 5:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 3;
+                                break;
+
+                        }
+
+                    }
+                    else
+                    {
+                        nbPointsFinal += nbPointsJet[indexPointsJet] * g[numCol][numLig].getCouleur();} // Je multiplie la valeur
+                    // score de la lettre par
+                    // le code couleur de la
+                    // case sous-jacente.
+                    numLig++;
+                }
+                break;
+            case 'h':
+                for (int i = 0; i < mot.length(); i++) {
+                    int indexPointsJet = Ut.majToIndex(mot.charAt(i));
+                    if(g[numCol][numLig].getCouleur()==4 || g[numCol][numLig].getCouleur()==5){
+                        switch (g[numCol][numLig].getCouleur()){
+                            case 4:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 2;
+                                break;
+
+                            case 5:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 3;
+                                break;
+
+                        }
+
+                    }
+                    else
+                    {
+                        nbPointsFinal += nbPointsJet[indexPointsJet] * g[numCol][numLig].getCouleur();}
+                    numCol++;
+
+                }
+                break;
+        }
+        nbPointsFinal = nbPointsFinal *multiplicateurMot;
+        return (nbPointsFinal);
+    }
+
+
+    /**
+     * PR: Le placement de mot sur this à partir de la case (numLig, numCol) dans le sens donnée par sens à l'aide des jetons de e est valide.
+     * A/R: Effectue ce placement et retour ne nombre de jetons retirées de e.
+     * @param mot
+     * @param numLig
+     * @param numCol
+     * @param sens
+     * @param e
+     * @return
+     */
+    public int place(String mot, int numLig, int numCol, char sens, MEE e){
+        int resultatNbJetonRetiree = 0;
+        int index = 0;
+
+        //Je regarde le sens.
         if(sens == 'h'){
-            for(int i=numCol; i<mot.length(); i++){
-                if(g[])
+            //Puis je crée un boucle qui vas check toutes les cases du mot.
+            for(int a=numCol; a<numCol+mot.length(); a++){
+                //Si c'est possible de retirer.
+                if(e.retire(Ut.majToIndex(mot.charAt(index)))){
+                    //Alors j'ajoute 1 aux res.
+                    resultatNbJetonRetiree ++;
+                }
+                //Puis je place sur le plateau.
+                g[numLig][a].setLettre(mot.charAt(index));
+                index++;
             }
         }else if(sens == 'v'){
-
+            //Puis je crée un boucle qui vas check toutes les cases du mot.
+            for(int i=numLig; i<numLig+mot.length(); i++){
+                //Si c'est possible de retirer.
+                if(e.retire(Ut.majToIndex(mot.charAt(index)))){
+                    //Alors je rajoute 1 au res.
+                    resultatNbJetonRetiree ++;
+                }
+                //Puis je place sur le plateau.
+                g[i][numCol].setLettre(mot.charAt(index));
+                index++;
+            }
         }
 
-
-        return nbPointsFinal;
+        return resultatNbJetonRetiree;
     }
+
+
 
 }

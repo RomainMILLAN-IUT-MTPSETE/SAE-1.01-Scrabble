@@ -22,9 +22,11 @@ public class MEE {
      * @param tab
      */
     public MEE(int[] tab){
+        this(tab.length);
+        for(int i=0; i<tab.length; i++){
+            this.tabFreq[i] = tab[i];
+        }
 
-
-        this.tabFreq = tab;
         this.nbTotEx = 0;
         for (int i = 0; i<this.tabFreq.length; i++){//On calcule nbTotEx de tabFreq
             this.nbTotEx = this.nbTotEx + this.tabFreq[i];
@@ -162,13 +164,30 @@ public class MEE {
         //On initialize le résulat
         int resultat = 0;
 
-        //On fait une boucle pour parcourir tous le trableau this
+        //On fait une boucle pour parcourir tous le tableau this
         for(int i=0; i<this.tabFreq.length; i++){
             //On ajoute au résultat le nombre d'exemplaire * valeur des points
             resultat += this.tabFreq[i] * v[i];
         }
 
         //Retoune le résultat
+        return resultat;
+    }
+
+    /**
+     * P: 'carac' est un caractère.
+     * A/R: Regarde si le caractère est contenue dans le MEE et renvoie si il est ou non.
+     * @param carac
+     * @return
+     */
+    public boolean contientAChar(char carac){
+        boolean resultat = false;
+
+        //On regarde dans le tabFreq si il est au moins à 1
+        if(this.tabFreq[Ut.majToIndex(carac)] > 0){
+            resultat = true;
+        }
+
         return resultat;
     }
 

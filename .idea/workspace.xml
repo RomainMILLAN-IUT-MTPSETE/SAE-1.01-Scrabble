@@ -10,12 +10,20 @@
       <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/MEE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/MEE.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Plateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Plateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Scrabble.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Scrabble.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,23 +108,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Delete 'afficheMEE'" />
     <option name="LAST_COMMIT_MESSAGE" value="Delete 'afficheMEE'" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MEE.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="205">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="211">
         <watch expression="resultat" language="JAVA" />
       </inline-watch>
     </watches-manager>
