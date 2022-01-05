@@ -19,9 +19,12 @@ public class mainScrabble {
 
         for(int i = 0; i < nbJoueurs; i++){//On fait une boucle pour crée tous les noms de joueur
             Ut.afficher("Nom J" + (i + 1) + " :");
-            listeJoueurs[i]=Ut.saisirChaine();
+            listeJoueurs[i] = Ut.saisirChaine();
         }
+
+        //On crée le SCRABBLE
         Scrabble leJeuDeScrabble = new Scrabble(listeJoueurs);
+        //Et enfin on lance le jeu
         leJeuDeScrabble.partie();
     }
 

@@ -34,14 +34,6 @@ public class Plateau {
                 this.g[i][j] = new Case(plateau[i][j]);
             }
         }
-        /**g[7][6].setLettre('S');
-        g[7][7].setLettre('C');
-        g[7][8].setLettre('R');
-        g[7][9].setLettre('A');
-        g[7][10].setLettre('B');
-        g[7][11].setLettre('L');
-        g[7][12].setLettre('L');
-        g[7][13].setLettre('E');*/
     }
 
     /**
@@ -53,14 +45,21 @@ public class Plateau {
 
     public String toString(){
         //On définit les premières lignes de l'affichage
-        String resPlateauAfficher = "   |00 |01 |02 |03 |04 |05 |06 |07 |08 |09 |10 |11 |12 |13 |14 \n";
+        String resPlateauAfficher = "   |0  |1  |2  |3  |4  |5  |6  |7  |8  |9  |10 |11 |12 |13 |14 \n";
         //Puis la première lettre
-        char colonne = 'A';
+        int colonne = 0;
 
         //Maintenant on vas parcourir le tableau de case et afficher les différentes cases.
         for(int i=0; i<g.length; i++){
             //On ajoute la lettre de la ligne
-            resPlateauAfficher += " " + colonne + " |";
+            //Si le numero de la colonne est inferieur à 10
+            if(colonne < 10){
+                resPlateauAfficher += " " + colonne + " |";
+            }else {//Sinon
+                resPlateauAfficher += " " + colonne + "|";
+            }
+
+
             for(int j=0; j<g[0].length; j++){
                 //On regarde si la case est recourverte
                 if(g[i][j].estRecouverte() == false){
