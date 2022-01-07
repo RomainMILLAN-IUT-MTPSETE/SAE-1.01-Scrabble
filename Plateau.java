@@ -103,7 +103,7 @@ public class Plateau {
                             if(numCol + mot.length()-1 == 14 || g[numLig][numCol + mot.length()].estRecouverte() == false){
                                 if(checkCase(mot, numLig, numCol, sens) == true){
                                     if(checkChevalet(motWithoutCase(mot, numLig, numCol, sens), e) == true){
-                                        if(CapeloDico(mot) == true){
+                                        if(capeloDico(mot) == true){
                                             resultatPlacementValide = true;
                                         }
                                     }
@@ -117,7 +117,7 @@ public class Plateau {
                             if(numLig + mot.length()-1 == 14 || g[numLig + mot.length()][numCol].estRecouverte() == false){
                                 if(checkCase(mot, numLig, numCol, sens) == true){
                                     if(checkChevalet(motWithoutCase(mot, numLig, numCol, sens), e) == true){
-                                        if(CapeloDico(mot) == true){
+                                        if(capeloDico(mot) == true){
                                             resultatPlacementValide = true;
                                         }
                                     }
@@ -143,7 +143,7 @@ public class Plateau {
                         //Maintenant on sais que le mot passe bien par le millieu.
                         if(contientCenter == true){
                             if(checkChevalet(mot, e) == true){
-                                if(CapeloDico(mot) == true){
+                                if(capeloDico(mot) == true){
                                     resultatPlacementValide = true;
                                 }
                             }
@@ -160,7 +160,7 @@ public class Plateau {
                         //Maintenant on sais que le mot passe bien par le millieu.
                         if(contientCenter == true){
                             if(checkChevalet(mot, e) == true){
-                                if(CapeloDico(mot) == true){
+                                if(capeloDico(mot) == true){
                                     resultatPlacementValide = true;
                                 }
                             }
@@ -173,24 +173,17 @@ public class Plateau {
         return resultatPlacementValide;
     }
 
-    /**
-     * A/R: Retoune un boolean qui demande à l'utilisateur si le mot est valide.
-     * @param mot
-     * @return
-     */
-    public boolean CapeloDico(String mot){
+    public boolean capeloDico(String mot){
         boolean resultat = false;
-        char reponseCapeloDico;
+        char reponsePlayer;
 
-        System.out.println(" CapeloDico => Veuilliez indiquer si le mot est valide [Toutes les lettres en MAJUSCULE & Un mot valide] ? ('v' pour valide,'n' pour non valide): ");
-        reponseCapeloDico = Ut.saisirCaractere();
+        System.out.println(" CapeloDico - Veuilliez indiquez si le mot et valide et si il est en MAJUSCULE (v: valide, n: non-valide): "); reponsePlayer = Ut.saisirCaractere();
 
-        while(reponseCapeloDico != 'v' && reponseCapeloDico != 'n'){
-            System.out.println(" CapeloDico => Veuilliez indiquer si le mot est valide [Toutes les lettres en MAJUSCULE & Un mot valide] ? ('v' pour valide,'n' pour non valide): ");
-            reponseCapeloDico = Ut.saisirCaractere();
+        while (reponsePlayer != 'v' && reponsePlayer != 'n'){
+            System.out.println(" CapeloDico - Veuilliez indiquez si le mot et valide et si il est en MAJUSCULE (v: valide, n: non-valide): "); reponsePlayer = Ut.saisirCaractere();
         }
 
-        if(reponseCapeloDico == 'v'){
+        if(reponsePlayer == 'v'){
             resultat = true;
         }
 
@@ -227,6 +220,7 @@ public class Plateau {
 
         return resultatDansChevalet;
     }
+
 
     /**
      * Notes: Cette fonction permet de regarder si un mot par rapport à une ligne et une colonne et un ses et un MEE, on au moins une case vide une case pleine et dans les cases pleine les lettres sont egaux
@@ -304,6 +298,7 @@ public class Plateau {
         return resultat;
     }
 
+
     /**
      * Fonction qui permet de connaitre le mot sans les lettres déjà présentent dans le plateau.
      * @param mot
@@ -333,7 +328,6 @@ public class Plateau {
         return motResultat;
     }
 
-
     /**
      * PR: le placement de mot sur this à partir de la case (numLig, numCol) dans le sens donné par sens est valide
      * R: retourne le nombre de points rapportés par ce placement, le nombre de points de chaque jeton étant donné par le tableau nbPointsJet.
@@ -347,44 +341,60 @@ public class Plateau {
     public int nbPointsPlacement(String mot, int numLig, int numCol, char sens, int[] nbPointsJet){
         int nbPointsFinal = 0;
         int multiplicateurMot = 1;
-        if(sens == 'v'){
-            for (int i=0; i<mot.length(); i++) {
-                //On regarde si le mot compte Double ou Triple
-                if(g[numCol][numLig].getCouleur()==4 || g[numCol][numLig].getCouleur()==5){
-                    //Si la couleur est 4
-                    if(g[numCol][numLig].getCouleur() == 4){
-                        nbPointsFinal += nbPointsJet[Ut.majToIndex(mot.charAt(i))] * 1;
-                        multiplicateurMot = multiplicateurMot * 2;
-                    }else if(g[numCol][numLig].getCouleur() == 5){ //Si la couleur est 5
-                        nbPointsFinal += nbPointsJet[Ut.majToIndex(mot.charAt(i))] * 1;
-                        multiplicateurMot = multiplicateurMot * 3;
-                    }
-                }else {
-                    nbPointsFinal += nbPointsJet[Ut.majToIndex(mot.charAt(i))] * g[numCol][numLig].getCouleur();
-                }
-                numLig++;
-            }
-        }else if(sens == 'h'){
-            for (int i=0; i<mot.length(); i++) {
-                //On regarde si le mot compte Double ou Triple
-                if(g[numCol][numLig].getCouleur()==4 || g[numCol][numLig].getCouleur()==5){
-                    //Si la couleur est 4
-                    if(g[numCol][numLig].getCouleur() == 4){
-                        nbPointsFinal += nbPointsJet[Ut.majToIndex(mot.charAt(i))] * 1;
-                        multiplicateurMot = multiplicateurMot * 2;
-                    }else if(g[numCol][numLig].getCouleur() == 5){ //Si la couleur est 5
-                        nbPointsFinal += nbPointsJet[Ut.majToIndex(mot.charAt(i))] * 1;
-                        multiplicateurMot = multiplicateurMot * 3;
-                    }
-                }else {
-                    nbPointsFinal += nbPointsJet[Ut.majToIndex(mot.charAt(i))] * g[numCol][numLig].getCouleur();
-                }
-                numCol++;
+        switch (sens) {
+            case 'v':
+                for (int i = 0; i < mot.length(); i++) {
+                    int indexPointsJet = Ut.majToIndex(mot.charAt(i));
+                    if(g[numCol][numLig].getCouleur()==4 || g[numCol][numLig].getCouleur()==5){ //Mot compte Double Triple
+                        switch (g[numCol][numLig].getCouleur()){
+                            case 4:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 2;
+                                break;
 
-            }
+                            case 5:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 3;
+                                break;
+
+                        }
+
+                    }
+                    else
+                    {
+                        nbPointsFinal += nbPointsJet[indexPointsJet] * g[numCol][numLig].getCouleur();} // Je multiplie la valeur
+                    // score de la lettre par
+                    // le code couleur de la
+                    // case sous-jacente.
+                    numLig++;
+                }
+                break;
+            case 'h':
+                for (int i = 0; i < mot.length(); i++) {
+                    int indexPointsJet = Ut.majToIndex(mot.charAt(i));
+                    if(g[numCol][numLig].getCouleur()==4 || g[numCol][numLig].getCouleur()==5){
+                        switch (g[numCol][numLig].getCouleur()){
+                            case 4:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 2;
+                                break;
+
+                            case 5:
+                                nbPointsFinal += nbPointsJet[indexPointsJet] * 1;
+                                multiplicateurMot = multiplicateurMot * 3;
+                                break;
+
+                        }
+
+                    }
+                    else
+                    {
+                        nbPointsFinal += nbPointsJet[indexPointsJet] * g[numCol][numLig].getCouleur();}
+                    numCol++;
+
+                }
+                break;
         }
-
-
         nbPointsFinal = nbPointsFinal *multiplicateurMot;
         return (nbPointsFinal);
     }

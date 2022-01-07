@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f5b993a7-4fba-4e22-ba6d-d7ce03efadd1" name="Changes" comment="Delete 'afficheMEE'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plateau.java" beforeDir="false" afterPath="$PROJECT_DIR$/Plateau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE 1.01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Without Extensions/SAE 1.01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrabble.java" beforeDir="false" afterPath="$PROJECT_DIR$/Scrabble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Joueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Plateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Plateau.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Scrabble.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Scrabble.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,20 +47,20 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="CodeWithMe" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Cours\SAE1.01\Without Extensions" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.WITHOUT - SCRABBLE">
-    <configuration name="WITHOUT - SCRABBLE" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.SCRABBLE">
+    <configuration name="SCRABBLE" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mainScrabble" />
       <module name="SAE 1.01" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WITHOUT - Test SCRABBLE" type="Application" factoryName="Application">
+    <configuration name="Test SCRABBLE" type="Application" factoryName="Application">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="SAE 1.01" />
       <method v="2">
@@ -76,9 +68,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.WITHOUT - Test SCRABBLE" />
-      <item itemvalue="Application.WITHOUT - SCRABBLE" />
+      <item itemvalue="Application.SCRABBLE" />
+      <item itemvalue="Application.Test SCRABBLE" />
+      <item itemvalue="Application.Test" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,15 +107,23 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Delete 'afficheMEE'" />
     <option name="LAST_COMMIT_MESSAGE" value="Delete 'afficheMEE'" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Joueur.java</url>
+          <line>233</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="241">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="210">
         <watch expression="resultat" language="JAVA" />
       </inline-watch>
     </watches-manager>

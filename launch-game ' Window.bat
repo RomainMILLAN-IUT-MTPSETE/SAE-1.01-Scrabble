@@ -1,0 +1,2 @@
+javac mainScrabble.java
+java mainScrabble
