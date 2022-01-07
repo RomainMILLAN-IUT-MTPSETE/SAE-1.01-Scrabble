@@ -13,7 +13,7 @@
  ### Comment lancer le jeu ? <br/>
  *Vous avez 2 possibilitées ...*
   #### Lancer directement avec les fichiers executables
-  Une fois que vous avez [télécharger tous les fichiers disponible](https://github.com/Wabez3ter/SAE1.01/releases), extraire le .zip dans un dossier. Sélectionner la version que vous souhaitez (*Avec ou Sans extension*) puis vous n'avez plus que à cliquez sur le fichier 'launch-game | Linux' ou 'launch-game | Window'. Tout dépend de votre système d'exploitation.<br/><br/>
+  Une fois que vous avez [télécharger tous les fichiers disponible](https://github.com/Wabez3ter/SAE1.01/releases), extraire le .zip dans un dossier. Sélectionner la version que vous souhaitez (*Avec ou Sans extension*) puis vous n'avez plus que à cliquez sur le fichier "launch-game ' Linux" ou "launch-game ' Window". Tout dépend de votre système d'exploitation.<br/><br/>
   #### Compiler & Lancer le jeu:
   Une fois que vous avez [télécharger tous les fichiers disponible](https://github.com/Wabez3ter/SAE1.01/releases), extraire le .zip dans un dossier sélectionner la version que vous souhaitez (*Avec ou Sans extension*) puis ouvrez un terminal dans ce dossier. Une foit sur le terminal vous pouvez alors effectuer les commandes suivantes:
   > javac mainScrabble.java
