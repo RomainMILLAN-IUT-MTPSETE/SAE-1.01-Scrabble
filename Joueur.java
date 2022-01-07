@@ -255,6 +255,7 @@ public class Joueur {
         p.place(mot, numLig, numCol, sens, this.chevalet);
 
         if(this.chevalet.getNbTotEx() < 7){
+            System.out.println("prend: " + (7-this.chevalet.getNbTotEx()));
             this.prendJetons(s, 7 - this.chevalet.getNbTotEx());
         }
 

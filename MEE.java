@@ -125,15 +125,15 @@ public class MEE {
      * @return
      */
     public boolean transfere(MEE e, int i){
-        boolean resultat = false;//On initialize la variable 'resultat', qui est un boolean.
-
-        if(this.tabFreq[i] > 0){//On verifie si il est possible de transferer l'élément et on effectue l'action si possible.
+        boolean resultat;
+        if(this.tabFreq[i] > 0){
             this.retire(i);
             e.ajoute(i);
-            resultat = true;
+            resultat=true;
+        }else {
+            resultat=false;
         }
-
-        return resultat;
+        return(resultat);
     }
 
     /**
@@ -143,15 +143,17 @@ public class MEE {
      * @param k
      */
     public int tranfereAleat(MEE e, int k){
-        int res = 0;
-        while(k>0){
-            int indice = Ut.randomMinMax(0, this.tabFreq.length-1);//On lance un random nombre pour avoir l'indice.
-            if(this.transfere(e, indice) == true){
-                res++;
+        int index=1;
+        int choix;
+        int resultat=0;
+        while(index<=k){
+            choix=Ut.randomMinMax(0,(this.tabFreq.length-1));
+            if(this.transfere(e, choix)){
+                resultat++;
             }
-            k--;
+            index++;
         }
-        return res;
+        return(resultat);
     }
 
     /**
