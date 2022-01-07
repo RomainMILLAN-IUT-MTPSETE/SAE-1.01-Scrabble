@@ -150,7 +150,6 @@ public class Joueur {
         System.out.print("Veuilliez saisir le numéro de Colonne: "); int numCol = Ut.saisirEntier();
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
-        System.out.println(p.placementValide(mot, numLig, numCol, sens, this.chevalet));
         if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == true){
             joueMotAux(p, s, nbPointsJet, mot, numLig, numCol, sens);
             resultat = true;
@@ -238,6 +237,9 @@ public class Joueur {
             //Ensuite je transfere la lettre du chevalet vers le sac.
             this.chevalet.transfere(sac, letterChange);
         }
+        if(this.chevalet.getNbTotEx() < 7){
+            this.prendJetons(sac, 7 - this.chevalet.getNbTotEx());
+        }
     }
 
     /**
@@ -255,7 +257,6 @@ public class Joueur {
         p.place(mot, numLig, numCol, sens, this.chevalet);
 
         if(this.chevalet.getNbTotEx() < 7){
-            System.out.println("prend: " + (7-this.chevalet.getNbTotEx()));
             this.prendJetons(s, 7 - this.chevalet.getNbTotEx());
         }
 

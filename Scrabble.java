@@ -6,8 +6,8 @@ public class Scrabble {
     private static int[] nbPointsJeton = {1,3,3,2,1,4,2,4,1,10,10,1,2,1,1,3,8,1,1,1,1,4,10,10,10,10};
 
     public Scrabble(String[] listeJoueurs){
-                   //A.B.C.D.E.F.G.H.I.J.K.L.M.N.O.P.Q.R.S.T.U.V.W.X.Y.Z
-        int[] sacTab = {5,2,6,2,3,4,1,4,2,3,4,1,2,1,1,7,8,1,5,4,2,4,1,4,4,3};
+                      //A.B.C.D.E. F.G.H.I.J.K.L.M.N.O.P.Q.R.S.T.U.V.W.X.Y.Z
+        int[] sacTab = {9,2,2,3,15,2,2,2,8,1,1,5,3,6,6,2,1,6,6,6,6,2,1,1,1,1};
         this.plateau = new Plateau();
         this.sac = new MEE(sacTab);
 
