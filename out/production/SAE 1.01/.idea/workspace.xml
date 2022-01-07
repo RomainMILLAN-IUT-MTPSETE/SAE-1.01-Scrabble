@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b993a7-4fba-4e22-ba6d-d7ce03efadd1" name="Changes" comment="Delete 'afficheMEE'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MEE.java" beforeDir="false" afterPath="$PROJECT_DIR$/MEE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/MEE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/MEE.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE 1.01/mainScrabble.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE 1.01/mainScrabble.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JAVA" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cours-Linker/Initiation au Développement/T.D/T.D. - 9/Java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SAE1.01 - Extensions" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.21408182" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -107,10 +112,27 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Delete 'afficheMEE'" />
     <option name="LAST_COMMIT_MESSAGE" value="Delete 'afficheMEE'" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Joueur.java</url>
+          <line>233</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/Plateau.java" line="210">
+        <watch expression="resultat" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
