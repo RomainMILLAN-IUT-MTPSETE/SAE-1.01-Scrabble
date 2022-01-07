@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5b993a7-4fba-4e22-ba6d-d7ce03efadd1" name="Changes" comment="Delete 'afficheMEE'" />
+    <list default="true" id="f5b993a7-4fba-4e22-ba6d-d7ce03efadd1" name="Changes" comment="Delete 'afficheMEE'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,8 +68,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Test SCRABBLE" />
       <item itemvalue="Application.SCRABBLE" />
+      <item itemvalue="Application.Test SCRABBLE" />
       <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>

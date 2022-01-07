@@ -1,5 +1,6 @@
 # SAE 1.01
-> Github de la S.A.E. 1.01 - MILLAN Romain & BRETON Nathan
+*Github de la S.A.E. 1.01 - MILLAN Romain & BRETON Nathan*
+<br/>
 
 ## Description du projet
  ### Quesque la S.A.E. 1.01 ?
