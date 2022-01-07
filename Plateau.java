@@ -103,7 +103,9 @@ public class Plateau {
                             if(numCol + mot.length()-1 == 14 || g[numLig][numCol + mot.length()].estRecouverte() == false){
                                 if(checkCase(mot, numLig, numCol, sens) == true){
                                     if(checkChevalet(motWithoutCase(mot, numLig, numCol, sens), e) == true){
-                                        resultatPlacementValide = true;
+                                        if(capeloDico(mot) == true){
+                                            resultatPlacementValide = true;
+                                        }
                                     }
                                 }
                             }
@@ -115,7 +117,9 @@ public class Plateau {
                             if(numLig + mot.length()-1 == 14 || g[numLig + mot.length()][numCol].estRecouverte() == false){
                                 if(checkCase(mot, numLig, numCol, sens) == true){
                                     if(checkChevalet(motWithoutCase(mot, numLig, numCol, sens), e) == true){
-                                        resultatPlacementValide = true;
+                                        if(capeloDico(mot) == true){
+                                            resultatPlacementValide = true;
+                                        }
                                     }
                                 }
                             }
@@ -139,7 +143,9 @@ public class Plateau {
                         //Maintenant on sais que le mot passe bien par le millieu.
                         if(contientCenter == true){
                             if(checkChevalet(mot, e) == true){
-                                resultatPlacementValide = true;
+                                if(capeloDico(mot) == true){
+                                    resultatPlacementValide = true;
+                                }
                             }
                         }
                     }else if(sens == 'v' && numCol == 7){
@@ -154,7 +160,9 @@ public class Plateau {
                         //Maintenant on sais que le mot passe bien par le millieu.
                         if(contientCenter == true){
                             if(checkChevalet(mot, e) == true){
-                                resultatPlacementValide = true;
+                                if(capeloDico(mot) == true){
+                                    resultatPlacementValide = true;
+                                }
                             }
                         }
                     }
@@ -163,6 +171,23 @@ public class Plateau {
         }
 
         return resultatPlacementValide;
+    }
+
+    public boolean capeloDico(String mot){
+        boolean resultat = false;
+        char reponsePlayer;
+
+        System.out.println(" CapeloDico - Veuilliez indiquez si le mot et valide et si il est en MAJUSCULE (v: valide, n: non-valide): "); reponsePlayer = Ut.saisirCaractere();
+
+        while (reponsePlayer != 'v' && reponsePlayer != 'n'){
+            System.out.println(" CapeloDico - Veuilliez indiquez si le mot et valide et si il est en MAJUSCULE (v: valide, n: non-valide): "); reponsePlayer = Ut.saisirCaractere();
+        }
+
+        if(reponsePlayer == 'v'){
+            resultat = true;
+        }
+
+        return resultat;
     }
 
 
