@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class MEE {
     //PR => Pré-requis
     //A => Action
