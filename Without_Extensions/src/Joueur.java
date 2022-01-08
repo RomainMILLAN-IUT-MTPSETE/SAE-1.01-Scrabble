@@ -146,8 +146,8 @@ public class Joueur {
 
 
         System.out.print("Veuilliez saisir le mot à placer: "); String mot = Ut.saisirChaine();
-        System.out.print("Veuilliez saisir le numéro de Ligne: "); int numLig = Ut.saisirEntier();
         System.out.print("Veuilliez saisir le numéro de Colonne: "); int numCol = Ut.saisirEntier();
+        System.out.print("Veuilliez saisir le numéro de Ligne: "); int numLig = Ut.saisirEntier();
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
         if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == true){

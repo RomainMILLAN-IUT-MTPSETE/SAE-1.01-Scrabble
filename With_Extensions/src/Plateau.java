@@ -47,7 +47,7 @@ public class Plateau {
         //On définit les premières lignes de l'affichage
         String resPlateauAfficher = "   |0  |1  |2  |3  |4  |5  |6  |7  |8  |9  |10 |11 |12 |13 |14 \n";
         //Puis la première lettre
-        int colonne = 0;
+        char colonne = 'A';
 
         //Maintenant on vas parcourir le tableau de case et afficher les différentes cases.
         for(int i=0; i<g.length; i++){
