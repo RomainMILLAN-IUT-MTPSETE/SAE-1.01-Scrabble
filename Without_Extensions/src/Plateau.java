@@ -1,5 +1,6 @@
 public class Plateau {
 
+
     /**
      * Gris (rien): 1
      * Bleu clair (lettre double): 2
