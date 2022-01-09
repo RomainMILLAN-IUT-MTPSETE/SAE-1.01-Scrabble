@@ -28,6 +28,34 @@ public class Scrabble {
      *   4) L'affichage du ou des gagnants.
      */
     public void partie(){
+        //EXTENSION START
+        String[][] dico = new String[26][50000];//crée un tableau contenant les mot valide chaque ligne tu tableau correspondant à une lettre
+        int i = 0;
+        File file = new File("dicoReference.txt");//permet d'importer le fichier texte en le mettant dans une variable de type File
+        BufferedReader bufferedReader = null;
+
+        try{
+            FileReader fileReader = new FileReader(file);//lance la lecture du fichier
+            bufferedReader = new BufferedReader(fileReader);//Lit le fichier ligne par ligne plutôt que charactère par charactère
+            String line;
+
+            while((line = bufferedReader.readLine())!=null){
+               dico[Ut.majToIndex(line.charAt(0))][i] = line;//met la ligne dans la case de dico
+               i++;
+            }
+        } catch (FileNotFoundException e){//permet d'éviter que le programme ne se lance pas si le fichier n'existe pas
+            System.err.printf("Le fichier %s n'a pas été trouvé", file.toString());
+        } catch (IOException e){//permet d'éviter que le programme ne se lance pas si le fichier n'a pas de contenu
+            System.err.printf("Impossible de lire le contenu du fichier " + file.toString());
+        }
+        try{
+            bufferedReader.close();//arrête la lecture du fichier
+        } catch (IOException e){//permet d'éviter que le programme ne se lance pas si il est impossible de fermer le fichier
+            System.err.println("Impossible de fermer le fichier " + file.toString());
+        } catch (NullPointerException e){//permet d'éviter l'erreur NullPointerException dans le cas ou le fichier n'est pas lu et que bufferedReader reste à null
+            System.err.println("Impossible d'ouvrir le fichier " + file.toString());
+        }
+        //EXTENSION STOP
         boolean arretPartie = false;
         int passePartie = 0;
 
