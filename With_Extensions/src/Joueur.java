@@ -82,6 +82,21 @@ public class Joueur {
     public void prendJetons(MEE s, int nbJetons){
         s.tranfereAleat(this.chevalet, nbJetons);
     }
+    
+    //EXTENSION START
+    public boolean verification(String mot) {
+            int a = 0;
+            int v = 0;
+            boolean res = false;
+            while (dico[Ut.majToIndex(mot.charAt(0))][a] != null | v == 0) {//tant que tout les mots n'ont pas été verifié ou si le mot à été trouvé la boucle continue
+                if (dico[Ut.majToIndex(mot.charAt(0))][a] = mot) {
+                    res = true;
+                    v++;
+                }
+            }
+            return res;
+        }
+    //EXTENSION STOP
 
     /**
      * PR: Les éléments de s sont inférieurs à 26.
@@ -154,8 +169,13 @@ public class Joueur {
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
 
-        while(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false){
-            System.out.println("\n\n - Erreur, placement du mot invalide !");
+        while(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false && verification(mot)==false){
+            if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false){
+              System.out.println("\n\n - Erreur, placement du mot invalide !");
+            }//EXTENSION START
+            else if (verification(mot)==false){
+                System.out.println("\n\n - Erreur, le mot est invalide :");//Je vérifie si le mot est valide en le comparant au document dicoReference.txt
+            }//EXTENSION STOP
             System.out.print("Veuilliez saisir le mot à placer: "); mot = Ut.saisirChaine();
             System.out.print("Veuilliez saisir le numéro de Colonne: "); numCol = Ut.saisirEntier();
             //EXTENSION START
