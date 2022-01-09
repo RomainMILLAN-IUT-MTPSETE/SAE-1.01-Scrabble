@@ -168,9 +168,9 @@ public class Joueur {
         //EXTENSION STOP
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
-
-        while(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false && verification(mot)==false){
-            if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false){
+        boolean placementValide = p.placementValide(mot, numLig, numCol, sens, this.chevalet);
+        while(placementValide == false && verification(mot)==false){
+            if(placementValide == false){
               System.out.println("\n\n - Erreur, placement du mot invalide !");
             }//EXTENSION START
             else if (verification(mot)==false){
@@ -183,6 +183,7 @@ public class Joueur {
             numLig = Ut.majToIndex(letLig);//Puis je convertie la lettre en nombre.
             //EXTENSION STOP
             System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); sens = Ut.saisirCaractere();
+            placementValide = p.placementValide(mot, numLig, numCol, sens, this.chevalet);
         }
 
         joueMotAux(p, s, nbPointsJet, mot, numLig, numCol, sens);
