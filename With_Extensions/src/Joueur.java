@@ -153,23 +153,23 @@ public class Joueur {
         //EXTENSION STOP
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
-        if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == true){
-            joueMotAux(p, s, nbPointsJet, mot, numLig, numCol, sens);
-            resultat = true;
-        }else {
-            resultat = false;
+
+        while(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false){
+            System.out.println("\n\n - Erreur, placement du mot invalide !");
+            System.out.print("Veuilliez saisir le mot à placer: "); mot = Ut.saisirChaine();
+            System.out.print("Veuilliez saisir le numéro de Colonne: "); numCol = Ut.saisirEntier();
+            //EXTENSION START
+            System.out.print("Veuilliez saisir la lettre de Ligne: "); letLig = Ut.saisirCaractere();//Je demande à l'utilisateur de renter la lettre de la ligne.
+            numLig = Ut.majToIndex(letLig);//Puis je convertie la lettre en nombre.
+            //EXTENSION STOP
+            System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); sens = Ut.saisirCaractere();
         }
+
+        joueMotAux(p, s, nbPointsJet, mot, numLig, numCol, sens);
+        resultat = true;
 
 
         System.out.println(p.toString());
-        if(resultat == false){
-            System.out.println("Placement invalide !, passage au joueur suivant");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
         System.out.println("Votre score: " + this.score);
 
         return resultat;

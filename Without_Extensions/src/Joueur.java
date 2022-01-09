@@ -150,23 +150,20 @@ public class Joueur {
         System.out.print("Veuilliez saisir le numéro de Ligne: "); int numLig = Ut.saisirEntier();
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
-        if(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == true){
-            joueMotAux(p, s, nbPointsJet, mot, numLig, numCol, sens);
-            resultat = true;
-        }else {
-            resultat = false;
+
+        while(p.placementValide(mot, numLig, numCol, sens, this.chevalet) == false){
+            System.out.println("\n\n - Erreur, placement du mot invalide !");
+            System.out.print("Veuilliez saisir le mot à placer: "); mot = Ut.saisirChaine();
+            System.out.print("Veuilliez saisir le numéro de Colonne: "); numCol = Ut.saisirEntier();
+            System.out.print("Veuilliez saisir le numéro de Ligne: "); numLig = Ut.saisirEntier();
+            System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); sens = Ut.saisirCaractere();
         }
+
+        joueMotAux(p, s, nbPointsJet, mot, numLig, numCol, sens);
+        resultat = true;
 
 
         System.out.println(p.toString());
-        if(resultat == false){
-            System.out.println("Placement invalide !, passage au joueur suivant");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
         System.out.println("Votre score: " + this.score);
 
         return resultat;
