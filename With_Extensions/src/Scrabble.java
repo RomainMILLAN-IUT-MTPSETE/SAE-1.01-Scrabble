@@ -1,3 +1,9 @@
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.File;
+
 public class Scrabble {
     private Joueur[] joueurs;
     private int numJoueurs; //Joueur courant (entre 0 et joueur.length-1);
