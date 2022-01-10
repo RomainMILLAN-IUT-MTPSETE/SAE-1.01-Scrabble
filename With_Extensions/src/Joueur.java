@@ -82,14 +82,14 @@ public class Joueur {
     public void prendJetons(MEE s, int nbJetons){
         s.tranfereAleat(this.chevalet, nbJetons);
     }
-    
+
     //EXTENSION START
-    public boolean verification(String mot) {
+    public boolean verification(String mot, String[][] dico) {
             int a = 0;
             int v = 0;
             boolean res = false;
             while (dico[Ut.majToIndex(mot.charAt(0))][a] != null | v == 0) {//tant que tout les mots n'ont pas été verifié ou si le mot à été trouvé la boucle continue
-                if (dico[Ut.majToIndex(mot.charAt(0))][a] = mot) {
+                if (dico[Ut.majToIndex(mot.charAt(0))][a] == mot) {
                     res = true;
                     v++;
                 }
@@ -107,7 +107,7 @@ public class Joueur {
      * @param nbPointsJet
      * @return
      */
-    public int joue(Plateau p, MEE s, int[] nbPointsJet){
+    public int joue(Plateau p, MEE s, int[] nbPointsJet, String[][] dico){
         int resultat = 0;
 
         //Je clear la console (il y a Ut.clearConsole(), cependant je n'arrive pas a le faire fonctionner).
@@ -127,7 +127,7 @@ public class Joueur {
             echangeJetons(s);
             resultat = 0;
         }else if(selectionJoueur == 'P'){
-            if(joueMot(p, s, nbPointsJet) == true){
+            if(joueMot(p, s, nbPointsJet, dico) == true){
                 if(this.chevalet.estVide() == true){
                     resultat = 1;
                 }else {
@@ -152,7 +152,7 @@ public class Joueur {
      * @param nbPointsJet
      * @return
      */
-    public boolean joueMot(Plateau p, MEE s, int[] nbPointsJet){
+    public boolean joueMot(Plateau p, MEE s, int[] nbPointsJet, String[][] dico){
         boolean resultat = false;
 
         System.out.println(p.toString());
@@ -169,11 +169,11 @@ public class Joueur {
         System.out.print("Veuilliez saisir le sens de direction (v: Vertical et h: Horizontal) : "); char sens = Ut.saisirCaractere();
 
         boolean placementValide = p.placementValide(mot, numLig, numCol, sens, this.chevalet);
-        while(placementValide == false && verification(mot)==false){
+        while(placementValide == false && verification(mot, dico)==false){
             if(placementValide == false){
               System.out.println("\n\n - Erreur, placement du mot invalide !");
             }//EXTENSION START
-            else if (verification(mot)==false){
+            else if (verification(mot, dico)==false){
                 System.out.println("\n\n - Erreur, le mot est invalide :");//Je vérifie si le mot est valide en le comparant au document dicoReference.txt
             }//EXTENSION STOP
             System.out.print("Veuilliez saisir le mot à placer: "); mot = Ut.saisirChaine();

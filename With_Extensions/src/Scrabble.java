@@ -36,7 +36,7 @@ public class Scrabble {
     public void partie(){
         //EXTENSION START
         String[][] dico = new String[26][50000];//crée un tableau contenant les mot valide chaque ligne tu tableau correspondant à une lettre
-        int i = 0;
+        int o = 0;
         File file = new File("dicoReference.txt");//permet d'importer le fichier texte en le mettant dans une variable de type File
         BufferedReader bufferedReader = null;
 
@@ -46,8 +46,8 @@ public class Scrabble {
             String line;
 
             while((line = bufferedReader.readLine())!=null){
-               dico[Ut.majToIndex(line.charAt(0))][i] = line;//met la ligne dans la case de dico
-               i++;
+               dico[Ut.majToIndex(line.charAt(0))][o] = line;//met la ligne dans la case de dico
+               o++;
             }
         } catch (FileNotFoundException e){//permet d'éviter que le programme ne se lance pas si le fichier n'existe pas
             System.err.printf("Le fichier %s n'a pas été trouvé", file.toString());
@@ -78,7 +78,7 @@ public class Scrabble {
 
         //Si on a pas arreter la partie alors:
         while(arretPartie == false){
-            int actionJouer = joueurs[this.numJoueurs].joue(this.plateau, this.sac, this.nbPointsJeton);
+            int actionJouer = joueurs[this.numJoueurs].joue(this.plateau, this.sac, this.nbPointsJeton, dico);
 
             //Le joueur passe son tour
             if(actionJouer == -1){
