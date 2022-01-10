@@ -24,7 +24,12 @@
 ## <br/><br/>Voir le programme
  ### Vous voulez voir le programme ?
  Vous avez deux solutions, soit vous vous rendez directement sur https://github.com/Wabez3ter/SAE1.01/, ou sinon si vous avez télécharger les fichiers vous les avez directement et si jamais vous voulez les télécharger [cliquez ici](https://github.com/Wabez3ter/SAE1.01/tree/master#comment-t%C3%A9l%C3%A9charger-larchive-contenant-les-deux-version-du-jeu-).
-
+ 
+## <br/><br/>Les extensions
+ ### Quels sont les extensions faites ?
+ Les extensions que nous avons effectué:<br/>
+ > - Repérage des cases du plateau.<br/>
+ > - Prise en compte d'un dictionnaire de référence.
 
 
 
